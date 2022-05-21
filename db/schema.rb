@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2022_05_21_073956) do
   enable_extension "plpgsql"
 
   create_table "attendances", force: :cascade do |t|
+    t.string "stripe_customer_id"
     t.bigint "users_id"
     t.bigint "events_id"
     t.datetime "created_at", null: false
@@ -31,8 +32,10 @@ ActiveRecord::Schema.define(version: 2022_05_21_073956) do
     t.text "description"
     t.integer "price"
     t.string "location"
+    t.bigint "admin_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_events_on_admin_id"
   end
 
   create_table "users", force: :cascade do |t|
