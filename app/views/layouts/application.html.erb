@@ -32,11 +32,15 @@
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 S'inscrire / Se Connecter
               </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><%= link_to "S'inscrire", new_user_registration_path, class:"btn btn-primary" %>
-                <li><%= link_to "Se Connecter", new_user_session_path, class:"btn btn-primary" %>
-              </ul>
-            </li>
+
+              <!-- <%# if @user = current_user do %> -->
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><%= link_to "S'inscrire", new_user_registration_path, class:"btn btn-primary" %>
+                  <li><%= link_to "Se Connecter", new_user_session_path, class:"btn btn-primary" %>
+                  <li><%= button_to "Se Déconnecter", destroy_user_session_path, method: :delete, class:"btn btn-secondary" %>
+                </ul>
+              </li>
+              <!-- <%# else %> -->
 
       </form>
     </div>
