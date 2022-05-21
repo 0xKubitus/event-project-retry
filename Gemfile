@@ -65,7 +65,9 @@ gem 'dotenv-rails'
 gem 'devise'
 gem 'stripe'
 
-
+group :development, :test do
+  gem 'sqlite3'
+end
 
 group :production do
   gem 'pg', '>=0.18', '< 2.0'
